@@ -13,6 +13,10 @@ export class Mastermind{
         this.life = life;
         //initialisation du nombre de couleur possible pour un item 
         this.nbColor = nbColor;
+        //initiatiasation du nombre d'éléments bien placés
+        this.wellPlaced = 0;
+        //initialiasation du nombre d'éléments mal placés
+        this.misplaced= 0;
     }
 
     //véritable initialisation du jeu
@@ -32,9 +36,45 @@ export class Mastermind{
             throw new Error(`La taille du tableau entrée : ${tab.length} ne correspond pas à la taille attendu du tableau d'essai : ${this.tabToTry.length}`);        
         }
     }
+
+    indice(){
+        this.life--;
+        if(this>=0){
+            let bonneplace = 0;
+            let present = 0;
+            //tableaux copier pour la partie 2
+            let copyTabToFind = this.tabToFind.slice();
+            let copyTabToTry = this.tabToTry.slice();
+            for (let i = 0; i < copyTabToFind.length; i++) {
+                if(this.tabToFind[i]==this.tabToTry[i]){
+                    bonneplace++;
+                    //les élements déjà trouver n'interviennent plus dans la suite
+                    //si on doit trouver [1,1,1,1] on rentrant [5,4,1,1] on aura 2 juste et 0 mal placé et pas 2 juste et 2 mal placé.
+                    copyTabToFind[i]=0;
+                    copyTabToTry[i]=-1;
+                }
+            }
+            for (let i = 0; i < copyTabToFind.length; i++) {
+                //on récupère l'indice de l'élément
+                let index = copyTabToFind.indexOf(copyTabToTry[i]) ;
+                //s'il est trouvé on l'enlève pour la suite
+                if(index != -1){
+                    present++;
+                    copyTabToFind[index]=0;
+                }
+            }
+            this.wellPlaced = bonneplace;
+            this.misplaced = present;
+        } else {
+            throw new Error(" Vous avez épuisé votre dernière vie. ");
+            
+        }
+    }    
 }
 
 let test = new Mastermind();
 test.init();
 test.setTabToTry([4,2,5,3]);
+console.log(test);
+test.indice();
 console.log(test);
