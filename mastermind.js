@@ -21,8 +21,20 @@ export class Mastermind{
             this.tabToFind[i]= Math.floor(Math.random()*this.nbColor+1);
         };
     }
+
+    setTabToTry(tab){
+        // si les tailles correspondent
+        if(this.tabToTry.length === tab.length){
+            // on met à jour le tableau d'essai
+            this.tabToTry = tab;
+        // sinon on renvoie une erreur
+        } else {
+            throw new Error(`La taille du tableau entrée : ${tab.length} ne correspond pas à la taille attendu du tableau d'essai : ${this.tabToTry.length}`);        
+        }
+    }
 }
 
 let test = new Mastermind();
 test.init();
+test.setTabToTry([4,2,5,3]);
 console.log(test);
