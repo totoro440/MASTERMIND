@@ -40,7 +40,7 @@ class Mastermind{
 
     //avoir les indices
     getClues(){
-        console.log("il y a : ",this.wellPlaced," éléments bien placés \n et il y a : ",this.misplaced," éléments mal placés");
+        return[this.wellPlaced,this.misplaced];
     }
 
     //execution d'un tour de jeu

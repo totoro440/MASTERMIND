@@ -9,6 +9,10 @@ while(test.gameStatut()===0){
     }
     test.setTabToTry(tabEntries);
     test.play();
-    test.getClues();
+    let [a,b] = test.getClues();
+    console.log(
+        `il y a : ${a} éléments bien placés
+         et il y a : ${b} éléments mal placés`
+    );
 }
 console.log(test.finalMsg());

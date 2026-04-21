@@ -1,0 +1,63 @@
+/** reset css **/
+*, *::before, *::after { 
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+}
+
+:root{
+    --color1:red;
+    --color2:orange;
+    --color3:yellow;
+    --color4:green;
+    --color5:blue;
+    --color6:purple;
+    --color7:pink;
+    --color8:white;
+    --color9:cyan;
+}
+
+
+/** Ligne de mastermind */
+section{
+    width: 410px;
+    min-height: 60px;
+    background-color: antiquewhite;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    justify-content:space-around;
+    align-items: center;
+}
+
+section div{
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+/** Billes à cliquer */
+div[data-color]{
+    border-radius: 100%;
+    background-color: darkslategrey;
+    color: darkslategrey;
+}
+
+/**===========================================*/
+
+/** Résultat */
+.wellplaced, .misplaced{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+/** bouton résultat ***/
+.wellplaced div, .misplaced div{
+    background-color:darkslategrey;
+    width: 10px;
+    height: 10px;
+    margin:7px;
+    border-radius: 100%;
+}
