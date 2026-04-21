@@ -16,3 +16,6 @@ while(test.gameStatut()===0){
     );
 }
 console.log(test.finalMsg());
+
+//interactivité
+//document.querySelectorAll("")
