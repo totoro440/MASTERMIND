@@ -7,13 +7,13 @@
 
 :root{
     --color1:red;
-    --color2:orange;
-    --color3:yellow;
-    --color4:green;
-    --color5:blue;
+    --color2:green;
+    --color3:blue;
+    --color4:orange;
+    --color5:yellow;
     --color6:purple;
-    --color7:pink;
-    --color8:white;
+    --color7:white;
+    --color8:pink;
     --color9:cyan;
 }
 
@@ -32,12 +32,14 @@ section{
     margin-top: 5px;
     justify-content:space-around;
     align-items: center;
+    border-radius: 7%;
 }
 
 section div{
     width: 50px;
     height: 50px;
     background-color: black;
+    border-radius: 15%;
 }
 
 /** Billes à cliquer */
@@ -73,7 +75,7 @@ div[data-color='6']{
     background-color:var(--color6);
     color: var(--color6);
 }
-.div[data-color='7']{
+div[data-color='7']{
     background-color: var(--color7);
     color: var(--color7);
 }
