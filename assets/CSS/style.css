@@ -48,40 +48,40 @@ div[data-color]{
 }
 
 /** couleur des billes */
-.color1{
+div[data-color='1']{
     background-color: var(--color1);
     color: var(--color1);
 }
-.color2{
+div[data-color='2']{
     background-color: var(--color2);
     color: var(--color2);
 
 }
-.color3{
+div[data-color='3']{
     background-color: var(--color3);
     color:var(--color3);
 }
-.color4{
+div[data-color='4']{
     background-color: var(--color4);
     color: var(--color4);
 }
-.color5{
+div[data-color='5']{
     background-color: var(--color5);
     color: var(--color5);
 }
-.color6{
+div[data-color='6']{
     background-color:var(--color6);
     color: var(--color6);
 }
-.color7{
+.div[data-color='7']{
     background-color: var(--color7);
     color: var(--color7);
 }
-.color8{
+div[data-color='8']{
     background-color: var(--color8);
     color: var(--color8);
 }
-.color9{
+div[data-color='9']{
     background-color: var(--color9);
     color: var(--color9);
 }

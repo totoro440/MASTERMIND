@@ -22,7 +22,6 @@ for (const element of document.querySelectorAll("div[data-color]")) {
     element.addEventListener("click", (event)=>{
         let target = event.target;
         target.dataset.color++;
-        target.classList = [`color${target.dataset.color}`]
         console.log(event.target.dataset.color);
     })   
 }
