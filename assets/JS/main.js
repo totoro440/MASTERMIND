@@ -31,6 +31,18 @@ let createDom = (mind) => {
     document.querySelector("section").classList=[];
 }
 
+// récupérer le tableau à tester depuis le dom actif
+let getTabTotry = (mind,actif) => {
+    let tab = [];
+    let domSection = document.querySelector(`section[data-life='${actif}']`);
+    
+    for (const element of domSection.querySelectorAll(`div[data-color]`)) {
+        tab.push((element.dataset.color));
+    }
+    return tab;
+}
+
+
 // fonction pour changer la couleur de l'affichage
 let nextColor = (mind, color) => {
     if(color >= mind.getColors()){
@@ -54,3 +66,7 @@ createDom(myMastermind);
 for (const element of document.querySelectorAll("div[data-color]")) {
     element.addEventListener("click", domNextColor )   
 }
+
+document.querySelector('button').addEventListener("click", ()=>{
+    console.log(getTabTotry(myMastermind,1));
+})
