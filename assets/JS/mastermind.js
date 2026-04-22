@@ -1,3 +1,4 @@
+"use strict";
 class Mastermind{
     constructor(nbColor=5,life=9,nbItem=4){
         //tableau à trouver
@@ -41,6 +42,21 @@ class Mastermind{
     //avoir les indices
     getClues(){
         return[this.wellPlaced,this.misplaced];
+    }
+
+    //avoir le nombre de couleur du mastermind
+    getColors(){
+        return this.nbColor;
+    }
+
+    //avoir la taille du mastermind
+    getSize(){
+        return this.tabToFind.length;
+    }
+
+    //avoir le nombre de vie
+    getLife(){
+        return this.life;
     }
 
     //execution d'un tour de jeu
