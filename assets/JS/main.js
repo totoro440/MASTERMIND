@@ -76,14 +76,24 @@ for (const element of document.querySelectorAll("div[data-color]")) {
 }
 
 //vérifications des couleurs
+//programme principal
 document.querySelector('button').addEventListener("click", ()=>{
-    myMastermind.setTabToTry(getTabToTry(myMastermind,currentSection));
-    console.log(getTabToTry(myMastermind,currentSection));
-    myMastermind.play();
-    printDomClues(myMastermind,currentSection);
-    for (const element of document.querySelector(`section[data-life='${currentSection}']`).querySelectorAll(`div[data-color]`)) {
-        element.removeEventListener("click", domNextColor);   
+    if(myMastermind.gameStatut()!==0){
+        console.log(myMastermind.finalMsg());
+    } else {
+        // on rentre le tableau à tester
+        myMastermind.setTabToTry(getTabToTry(myMastermind,currentSection));
+        // on effectue un tour de jeu
+        myMastermind.play();
+        // on affiche les indices dans le dom
+        printDomClues(myMastermind,currentSection);
+        // on désactif la section précédente
+        for (const element of document.querySelector(`section[data-life='${currentSection}']`).querySelectorAll(`div[data-color]`)) {
+            element.removeEventListener("click", domNextColor);   
+        }
+        // on déplace notre cursor de section
+        currentSection++;
+        // on affiche la section suivante
+        document.querySelector(`section[data-life='${currentSection}']`).classList=[];
     }
-    currentSection++;
-    document.querySelector(`section[data-life='${currentSection}']`).classList=[];
 })
