@@ -103,11 +103,17 @@ div[data-color='9']{
 
 /** bouton résultat ***/
 .wellplaced div, .misplaced div{
-    background-color:darkslategrey;
     width: 10px;
     height: 10px;
     margin:7px;
     border-radius: 100%;
+}
+.wellplaced div {
+    background-color:red;
+}
+
+.misplaced div{
+    background-color: aliceblue;
 }
 
 *:focus-visible {
