@@ -1,5 +1,5 @@
 "use strict";
-let myMastermind = new Mastermind(8);
+let myMastermind = new Mastermind(); // le mastermind
 let currentSection = 1;
 myMastermind.init();
 
@@ -63,15 +63,20 @@ let domNextColor = (event) => {
 createDom(myMastermind);
 
 //?interactivité
+// clique des couleurs
 for (const element of document.querySelectorAll("div[data-color]")) {
     element.addEventListener("click", domNextColor )   
 }
 
+//vérifications des couleurs
 document.querySelector('button').addEventListener("click", ()=>{
     myMastermind.setTabToTry(getTabToTry(myMastermind,currentSection));
     console.log(getTabToTry(myMastermind,currentSection));
     myMastermind.play();
     console.log(myMastermind.getClues());
+    for (const element of document.querySelector(`section[data-life='${currentSection}']`).querySelectorAll(`div[data-color]`)) {
+        element.removeEventListener("click", domNextColor);   
+    }
     currentSection++;
     document.querySelector(`section[data-life='${currentSection}']`).classList=[];
 })
